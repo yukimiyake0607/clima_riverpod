@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 const kTemperature = TextStyle(
-  fontSize: 90,
+  fontSize: 110,
   fontWeight: FontWeight.w200,
   height: 1.0,
 );
