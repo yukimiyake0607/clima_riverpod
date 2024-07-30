@@ -14,42 +14,38 @@ class WeeklyWeather extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Color(0xff2E74B9).withOpacity(0.6),
+        color: const Color(0xff2E74B9).withOpacity(0.6),
         borderRadius: BorderRadius.circular(16.0),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('1週間天気予報'),
-          SizedBox(
-            height: 300,
-            child: ListView.builder(
-              itemCount: 7,
-              itemBuilder: (context, index) {
-                return Container(
-                  decoration: BoxDecoration(
-                    border: Border(
-                      top: BorderSide(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                    ),
+          const Text('1週間天気予報'),
+          const SizedBox(height: 16),
+          ...List.generate(7, (index) {
+            return Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: Colors.white.withOpacity(0.2),
                   ),
-                  child: Row(
-                    children: [
-                      Text(
-                        index == 0 ? '今日' : getWeekday(index),
-                      ),
-                      Icon(
-                        Icons.sunny,
-                        color: Colors.yellow,
-                      ),
-                    ],
+                ),
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    index == 0 ? '今日' : getWeekday(index),
                   ),
-                );
-              },
-            ),
-          )
+                  const Icon(
+                    Icons.sunny,
+                    color: Colors.yellow,
+                  ),
+                ],
+              ),
+            );
+          })
         ],
       ),
     );
