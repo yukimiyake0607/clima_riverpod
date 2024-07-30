@@ -8,28 +8,24 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            '天気予報',
-            style: Theme.of(context).textTheme.titleLarge,
+    return const Scaffold(
+        body: SafeArea(
+      child: Column(
+        children: [
+          Expanded(
+            flex: 3,
+            child: CurrentWeather(),
           ),
-        ),
-        body: const Column(
-          children: [
-            Expanded(
-              flex: 3,
-              child: CurrentWeather(),
-            ),
-            Expanded(
-              flex: 3,
-              child: HourlyWeather(),
-            ),
-            Expanded(
-              flex: 3,
-              child: WeeklyWeather(),
-            ),
-          ],
-        ));
+          Expanded(
+            flex: 3,
+            child: HourlyWeather(),
+          ),
+          Expanded(
+            flex: 3,
+            child: WeeklyWeather(),
+          ),
+        ],
+      ),
+    ));
   }
 }
