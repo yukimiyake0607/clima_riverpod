@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
               horizontal: 20.0,
             ),
             child: ListView(
-              children: const [
+              children: [
                 CurrentWeather(),
                 HourlyWeather(),
                 SizedBox(
