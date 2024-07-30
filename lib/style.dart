@@ -10,3 +10,8 @@ const kCurrentWeather = TextStyle(
   fontSize: 20.0,
   fontWeight: FontWeight.w600,
 );
+
+const kHourlyWeather = TextStyle(
+  fontSize: 16.0,
+  fontWeight: FontWeight.bold,
+);
