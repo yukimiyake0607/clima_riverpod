@@ -34,7 +34,7 @@ class HourlyWeather extends StatelessWidget {
             height: 8.0,
           ),
           SizedBox(
-            height: 120.0,
+            height: 130.0,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 24,
@@ -47,7 +47,7 @@ class HourlyWeather extends StatelessWidget {
                       ),
                     ),
                   ),
-                  padding: const EdgeInsets.only(right: 28.0),
+                  padding: const EdgeInsets.only(right: 32.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -59,7 +59,10 @@ class HourlyWeather extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                           vertical: 12.0,
                         ),
-                        child: Icon(Icons.wb_sunny_outlined),
+                        child: Icon(
+                          Icons.wb_sunny_outlined,
+                          size: 30,
+                        ),
                       ),
                       Text(
                         '12°',
