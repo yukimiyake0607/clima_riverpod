@@ -7,7 +7,7 @@ class HourlyWeather extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         top: 16.0,
         right: 16.0,
         left: 16.0,
@@ -30,7 +30,7 @@ class HourlyWeather extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 8.0,
           ),
           SizedBox(
