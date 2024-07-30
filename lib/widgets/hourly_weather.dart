@@ -13,7 +13,7 @@ class HourlyWeather extends StatelessWidget {
         left: 16.0,
       ),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.2),
+        color: Color(0xff2E74B9).withOpacity(0.6),
         borderRadius: BorderRadius.circular(16.0),
       ),
       child: Column(
@@ -60,8 +60,9 @@ class HourlyWeather extends StatelessWidget {
                           vertical: 12.0,
                         ),
                         child: Icon(
-                          Icons.wb_sunny_outlined,
+                          Icons.wb_sunny,
                           size: 30,
+                          color: Colors.yellow,
                         ),
                       ),
                       Text(

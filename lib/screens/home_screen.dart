@@ -9,35 +9,65 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/weather_cloudy.jpg'),
-            fit: BoxFit.cover,
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/weather_cloudy.jpg'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.black.withOpacity(0.1),
+              Colors.blue.withOpacity(0.3),
+            ],
           ),
         ),
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Colors.black.withOpacity(0.1),
-                Colors.blue.withOpacity(0.3),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20.0,
+            ),
+            child: ListView(
+              children: const [
+                CurrentWeather(),
+                HourlyWeather(),
+                SizedBox(
+                  height: 10,
+                ),
+                WeeklyWeather(),
               ],
             ),
           ),
-          child: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20.0,
-              ),
-              child: ListView(
+          bottomNavigationBar: SizedBox(
+            height: 90.0,
+            child: BottomAppBar(
+              color: Color(0xff2E74B9).withOpacity(0.6),
+              elevation: 0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CurrentWeather(),
-                  HourlyWeather(),
-                  WeeklyWeather(),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.my_location,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.menu,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                  )
                 ],
               ),
             ),
