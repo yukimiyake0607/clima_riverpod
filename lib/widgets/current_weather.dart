@@ -19,9 +19,29 @@ class CurrentWeather extends StatelessWidget {
             '東京',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
-          const Text(
-            '12°',
-            style: kTemperature,
+          Stack(
+            clipBehavior: Clip.none,
+            alignment: Alignment.center,
+            children: [
+              const Text(
+                '12',
+                style: kTemperature,
+              ),
+              Positioned(
+                top: 10,
+                right: -30,
+                child: Transform.translate(
+                  offset: Offset(0, -kTemperature.fontSize! / 4),
+                  child: const Text(
+                    '°',
+                    style: TextStyle(
+                      fontSize: 80,
+                      fontWeight: FontWeight.w200,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           const Text(
             'ところにより曇り',
