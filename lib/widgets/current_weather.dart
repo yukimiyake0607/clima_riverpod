@@ -1,4 +1,4 @@
-import 'package:clima_riverpod/style.dart';
+import 'package:clima_riverpod/components/style.dart';
 import 'package:flutter/material.dart';
 
 class CurrentWeather extends StatelessWidget {
