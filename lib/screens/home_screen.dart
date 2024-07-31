@@ -41,6 +41,7 @@ class HomeScreen extends StatelessWidget {
                   height: 10,
                 ),
                 WeeklyWeather(),
+                SizedBox(height: 15),
               ],
             ),
           ),

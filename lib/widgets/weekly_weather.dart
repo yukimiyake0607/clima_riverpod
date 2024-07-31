@@ -1,3 +1,4 @@
+import 'package:clima_riverpod/style.dart';
 import 'package:flutter/material.dart';
 
 class WeeklyWeather extends StatelessWidget {
@@ -22,10 +23,25 @@ class WeeklyWeather extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('1週間天気予報'),
+          const Row(
+            children: [
+              Icon(
+                Icons.calendar_month_outlined,
+                color: Colors.white,
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text(
+                '1週間天気予報',
+                style: kWeeklyWeatherTitle,
+              ),
+            ],
+          ),
           const SizedBox(height: 16),
           ...List.generate(7, (index) {
             return Container(
+              padding: EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
                 border: Border(
                   top: BorderSide(
@@ -34,13 +50,26 @@ class WeeklyWeather extends StatelessWidget {
                 ),
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    index == 0 ? '今日' : getWeekday(index),
+                  SizedBox(
+                    width: 50,
+                    child: Text(
+                      index == 0 ? '今日' : getWeekday(index),
+                      style: kWeeklyWeather,
+                    ),
                   ),
                   const Icon(
                     Icons.sunny,
                     color: Colors.yellow,
+                  ),
+                  Text(
+                    '最低:11°',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                  Text(
+                    '最高:17°',
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],
               ),

@@ -15,3 +15,12 @@ const kHourlyWeather = TextStyle(
   fontSize: 16.0,
   fontWeight: FontWeight.bold,
 );
+
+const kWeeklyWeather = TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.bold,
+);
+
+const kWeeklyWeatherTitle = TextStyle(
+  fontSize: 18,
+);
