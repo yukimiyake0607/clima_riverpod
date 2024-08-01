@@ -28,10 +28,15 @@ class CurrentWeather with _$CurrentWeather {
     required double tempMax,
   }) = _CurrentWeather;
 
-  factory CurrentWeather.fromJson(Map<String, dynamic> json) =>
-      _$CurrentWeatherFromJson(json);
+  factory CurrentWeather.fromJson(Map<String, dynamic> json) {
+    final weather = json['main'];
+    return _CurrentWeather(
+        temperature: weather['temp'],
+        weatherId: json['weather']['id'],
+        tempMin: weather['temp_min'],
+        tempMax: weather['temp_max']);
+  }
 }
-
 
 @freezed
 class HourlyWeather with _$HourlyWeather {
@@ -40,10 +45,16 @@ class HourlyWeather with _$HourlyWeather {
     required int weatherId,
     required double temperature,
   }) = _HourlyWeather;
-  
-  factory HourlyWeather.fromJson(Map<String, dynamic> json) => _$HourlyWeatherFromJson(json);
-}
 
+  factory HourlyWeather.fromJson(Map<String, dynamic> json) {
+    final dateTime = DateTime.fromMillisecondsSinceEpoch(json['dt'] * 1000);
+    return _HourlyWeather(
+      timeStamp: dateTime.hour,
+      weatherId: json['weather']['id'],
+      temperature: json['main']['temp'],
+    );
+  }
+}
 
 @freezed
 class WeeklyWeather with _$WeeklyWeather {
@@ -52,10 +63,15 @@ class WeeklyWeather with _$WeeklyWeather {
     required double tempMin,
     required double tempMax,
   }) = _WeeklyWeather;
-  
-  factory WeeklyWeather.fromJson(Map<String, dynamic> json) => _$WeeklyWeatherFromJson(json);
-}
 
+  factory WeeklyWeather.fromJson(Map<String, dynamic> json) {
+    return _WeeklyWeather(
+      weatherId: json['weather']['id'],
+      tempMin: json['main']['temp_min'],
+      tempMax: json['main']['temp_max'],
+    );
+  }
+}
 
 @freezed
 class WeatherData with _$WeatherData {
@@ -64,6 +80,7 @@ class WeatherData with _$WeatherData {
     required List<HourlyWeather> hourly,
     required List<WeeklyWeather> weekly,
   }) = _WeatherData;
-  
-  factory WeatherData.fromJson(Map<String, dynamic> json) => _$WeatherDataFromJson(json);
+
+  factory WeatherData.fromJson(Map<String, dynamic> json) =>
+      _$WeatherDataFromJson(json);
 }
