@@ -23,6 +23,7 @@ class LocationService {
       throw Exception('位置情報の権限が永久に拒否されました。設定から変更してください。');
     }
 
+    // 権限関係で問題がない場合、現在地を取得
     Position position = await Geolocator.getCurrentPosition();
     return Location(latitude: position.latitude, longitude: position.longitude);
   }
