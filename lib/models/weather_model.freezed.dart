@@ -623,164 +623,6 @@ abstract class _HourlyWeather implements HourlyWeather {
       throw _privateConstructorUsedError;
 }
 
-HourlyWeatherList _$HourlyWeatherListFromJson(Map<String, dynamic> json) {
-  return _HourlyWeatherList.fromJson(json);
-}
-
-/// @nodoc
-mixin _$HourlyWeatherList {
-  List<HourlyWeather> get hourlyWeathers => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $HourlyWeatherListCopyWith<HourlyWeatherList> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $HourlyWeatherListCopyWith<$Res> {
-  factory $HourlyWeatherListCopyWith(
-          HourlyWeatherList value, $Res Function(HourlyWeatherList) then) =
-      _$HourlyWeatherListCopyWithImpl<$Res, HourlyWeatherList>;
-  @useResult
-  $Res call({List<HourlyWeather> hourlyWeathers});
-}
-
-/// @nodoc
-class _$HourlyWeatherListCopyWithImpl<$Res, $Val extends HourlyWeatherList>
-    implements $HourlyWeatherListCopyWith<$Res> {
-  _$HourlyWeatherListCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hourlyWeathers = null,
-  }) {
-    return _then(_value.copyWith(
-      hourlyWeathers: null == hourlyWeathers
-          ? _value.hourlyWeathers
-          : hourlyWeathers // ignore: cast_nullable_to_non_nullable
-              as List<HourlyWeather>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$HourlyWeatherListImplCopyWith<$Res>
-    implements $HourlyWeatherListCopyWith<$Res> {
-  factory _$$HourlyWeatherListImplCopyWith(_$HourlyWeatherListImpl value,
-          $Res Function(_$HourlyWeatherListImpl) then) =
-      __$$HourlyWeatherListImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<HourlyWeather> hourlyWeathers});
-}
-
-/// @nodoc
-class __$$HourlyWeatherListImplCopyWithImpl<$Res>
-    extends _$HourlyWeatherListCopyWithImpl<$Res, _$HourlyWeatherListImpl>
-    implements _$$HourlyWeatherListImplCopyWith<$Res> {
-  __$$HourlyWeatherListImplCopyWithImpl(_$HourlyWeatherListImpl _value,
-      $Res Function(_$HourlyWeatherListImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hourlyWeathers = null,
-  }) {
-    return _then(_$HourlyWeatherListImpl(
-      hourlyWeathers: null == hourlyWeathers
-          ? _value._hourlyWeathers
-          : hourlyWeathers // ignore: cast_nullable_to_non_nullable
-              as List<HourlyWeather>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$HourlyWeatherListImpl
-    with DiagnosticableTreeMixin
-    implements _HourlyWeatherList {
-  const _$HourlyWeatherListImpl(
-      {required final List<HourlyWeather> hourlyWeathers})
-      : _hourlyWeathers = hourlyWeathers;
-
-  factory _$HourlyWeatherListImpl.fromJson(Map<String, dynamic> json) =>
-      _$$HourlyWeatherListImplFromJson(json);
-
-  final List<HourlyWeather> _hourlyWeathers;
-  @override
-  List<HourlyWeather> get hourlyWeathers {
-    if (_hourlyWeathers is EqualUnmodifiableListView) return _hourlyWeathers;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_hourlyWeathers);
-  }
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HourlyWeatherList(hourlyWeathers: $hourlyWeathers)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'HourlyWeatherList'))
-      ..add(DiagnosticsProperty('hourlyWeathers', hourlyWeathers));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$HourlyWeatherListImpl &&
-            const DeepCollectionEquality()
-                .equals(other._hourlyWeathers, _hourlyWeathers));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_hourlyWeathers));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$HourlyWeatherListImplCopyWith<_$HourlyWeatherListImpl> get copyWith =>
-      __$$HourlyWeatherListImplCopyWithImpl<_$HourlyWeatherListImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$HourlyWeatherListImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _HourlyWeatherList implements HourlyWeatherList {
-  const factory _HourlyWeatherList(
-          {required final List<HourlyWeather> hourlyWeathers}) =
-      _$HourlyWeatherListImpl;
-
-  factory _HourlyWeatherList.fromJson(Map<String, dynamic> json) =
-      _$HourlyWeatherListImpl.fromJson;
-
-  @override
-  List<HourlyWeather> get hourlyWeathers;
-  @override
-  @JsonKey(ignore: true)
-  _$$HourlyWeatherListImplCopyWith<_$HourlyWeatherListImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
 WeeklyWeather _$WeeklyWeatherFromJson(Map<String, dynamic> json) {
   return _WeeklyWeather.fromJson(json);
 }
@@ -966,33 +808,40 @@ abstract class _WeeklyWeather implements WeeklyWeather {
       throw _privateConstructorUsedError;
 }
 
-WeeklyWeathers _$WeeklyWeathersFromJson(Map<String, dynamic> json) {
-  return _WeeklyWeathers.fromJson(json);
+WeatherData _$WeatherDataFromJson(Map<String, dynamic> json) {
+  return _WeatherData.fromJson(json);
 }
 
 /// @nodoc
-mixin _$WeeklyWeathers {
-  List<WeeklyWeather> get weeklyWeathers => throw _privateConstructorUsedError;
+mixin _$WeatherData {
+  CurrentWeather get current => throw _privateConstructorUsedError;
+  List<HourlyWeather> get hourly => throw _privateConstructorUsedError;
+  List<WeeklyWeather> get weekly => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $WeeklyWeathersCopyWith<WeeklyWeathers> get copyWith =>
+  $WeatherDataCopyWith<WeatherData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $WeeklyWeathersCopyWith<$Res> {
-  factory $WeeklyWeathersCopyWith(
-          WeeklyWeathers value, $Res Function(WeeklyWeathers) then) =
-      _$WeeklyWeathersCopyWithImpl<$Res, WeeklyWeathers>;
+abstract class $WeatherDataCopyWith<$Res> {
+  factory $WeatherDataCopyWith(
+          WeatherData value, $Res Function(WeatherData) then) =
+      _$WeatherDataCopyWithImpl<$Res, WeatherData>;
   @useResult
-  $Res call({List<WeeklyWeather> weeklyWeathers});
+  $Res call(
+      {CurrentWeather current,
+      List<HourlyWeather> hourly,
+      List<WeeklyWeather> weekly});
+
+  $CurrentWeatherCopyWith<$Res> get current;
 }
 
 /// @nodoc
-class _$WeeklyWeathersCopyWithImpl<$Res, $Val extends WeeklyWeathers>
-    implements $WeeklyWeathersCopyWith<$Res> {
-  _$WeeklyWeathersCopyWithImpl(this._value, this._then);
+class _$WeatherDataCopyWithImpl<$Res, $Val extends WeatherData>
+    implements $WeatherDataCopyWith<$Res> {
+  _$WeatherDataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -1002,45 +851,79 @@ class _$WeeklyWeathersCopyWithImpl<$Res, $Val extends WeeklyWeathers>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? weeklyWeathers = null,
+    Object? current = null,
+    Object? hourly = null,
+    Object? weekly = null,
   }) {
     return _then(_value.copyWith(
-      weeklyWeathers: null == weeklyWeathers
-          ? _value.weeklyWeathers
-          : weeklyWeathers // ignore: cast_nullable_to_non_nullable
+      current: null == current
+          ? _value.current
+          : current // ignore: cast_nullable_to_non_nullable
+              as CurrentWeather,
+      hourly: null == hourly
+          ? _value.hourly
+          : hourly // ignore: cast_nullable_to_non_nullable
+              as List<HourlyWeather>,
+      weekly: null == weekly
+          ? _value.weekly
+          : weekly // ignore: cast_nullable_to_non_nullable
               as List<WeeklyWeather>,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CurrentWeatherCopyWith<$Res> get current {
+    return $CurrentWeatherCopyWith<$Res>(_value.current, (value) {
+      return _then(_value.copyWith(current: value) as $Val);
+    });
   }
 }
 
 /// @nodoc
-abstract class _$$WeeklyWeathersImplCopyWith<$Res>
-    implements $WeeklyWeathersCopyWith<$Res> {
-  factory _$$WeeklyWeathersImplCopyWith(_$WeeklyWeathersImpl value,
-          $Res Function(_$WeeklyWeathersImpl) then) =
-      __$$WeeklyWeathersImplCopyWithImpl<$Res>;
+abstract class _$$WeatherDataImplCopyWith<$Res>
+    implements $WeatherDataCopyWith<$Res> {
+  factory _$$WeatherDataImplCopyWith(
+          _$WeatherDataImpl value, $Res Function(_$WeatherDataImpl) then) =
+      __$$WeatherDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<WeeklyWeather> weeklyWeathers});
+  $Res call(
+      {CurrentWeather current,
+      List<HourlyWeather> hourly,
+      List<WeeklyWeather> weekly});
+
+  @override
+  $CurrentWeatherCopyWith<$Res> get current;
 }
 
 /// @nodoc
-class __$$WeeklyWeathersImplCopyWithImpl<$Res>
-    extends _$WeeklyWeathersCopyWithImpl<$Res, _$WeeklyWeathersImpl>
-    implements _$$WeeklyWeathersImplCopyWith<$Res> {
-  __$$WeeklyWeathersImplCopyWithImpl(
-      _$WeeklyWeathersImpl _value, $Res Function(_$WeeklyWeathersImpl) _then)
+class __$$WeatherDataImplCopyWithImpl<$Res>
+    extends _$WeatherDataCopyWithImpl<$Res, _$WeatherDataImpl>
+    implements _$$WeatherDataImplCopyWith<$Res> {
+  __$$WeatherDataImplCopyWithImpl(
+      _$WeatherDataImpl _value, $Res Function(_$WeatherDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? weeklyWeathers = null,
+    Object? current = null,
+    Object? hourly = null,
+    Object? weekly = null,
   }) {
-    return _then(_$WeeklyWeathersImpl(
-      weeklyWeathers: null == weeklyWeathers
-          ? _value._weeklyWeathers
-          : weeklyWeathers // ignore: cast_nullable_to_non_nullable
+    return _then(_$WeatherDataImpl(
+      current: null == current
+          ? _value.current
+          : current // ignore: cast_nullable_to_non_nullable
+              as CurrentWeather,
+      hourly: null == hourly
+          ? _value._hourly
+          : hourly // ignore: cast_nullable_to_non_nullable
+              as List<HourlyWeather>,
+      weekly: null == weekly
+          ? _value._weekly
+          : weekly // ignore: cast_nullable_to_non_nullable
               as List<WeeklyWeather>,
     ));
   }
@@ -1048,78 +931,99 @@ class __$$WeeklyWeathersImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$WeeklyWeathersImpl
-    with DiagnosticableTreeMixin
-    implements _WeeklyWeathers {
-  const _$WeeklyWeathersImpl(
-      {required final List<WeeklyWeather> weeklyWeathers})
-      : _weeklyWeathers = weeklyWeathers;
+class _$WeatherDataImpl with DiagnosticableTreeMixin implements _WeatherData {
+  const _$WeatherDataImpl(
+      {required this.current,
+      required final List<HourlyWeather> hourly,
+      required final List<WeeklyWeather> weekly})
+      : _hourly = hourly,
+        _weekly = weekly;
 
-  factory _$WeeklyWeathersImpl.fromJson(Map<String, dynamic> json) =>
-      _$$WeeklyWeathersImplFromJson(json);
+  factory _$WeatherDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WeatherDataImplFromJson(json);
 
-  final List<WeeklyWeather> _weeklyWeathers;
   @override
-  List<WeeklyWeather> get weeklyWeathers {
-    if (_weeklyWeathers is EqualUnmodifiableListView) return _weeklyWeathers;
+  final CurrentWeather current;
+  final List<HourlyWeather> _hourly;
+  @override
+  List<HourlyWeather> get hourly {
+    if (_hourly is EqualUnmodifiableListView) return _hourly;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_weeklyWeathers);
+    return EqualUnmodifiableListView(_hourly);
+  }
+
+  final List<WeeklyWeather> _weekly;
+  @override
+  List<WeeklyWeather> get weekly {
+    if (_weekly is EqualUnmodifiableListView) return _weekly;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_weekly);
   }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'WeeklyWeathers(weeklyWeathers: $weeklyWeathers)';
+    return 'WeatherData(current: $current, hourly: $hourly, weekly: $weekly)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'WeeklyWeathers'))
-      ..add(DiagnosticsProperty('weeklyWeathers', weeklyWeathers));
+      ..add(DiagnosticsProperty('type', 'WeatherData'))
+      ..add(DiagnosticsProperty('current', current))
+      ..add(DiagnosticsProperty('hourly', hourly))
+      ..add(DiagnosticsProperty('weekly', weekly));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WeeklyWeathersImpl &&
-            const DeepCollectionEquality()
-                .equals(other._weeklyWeathers, _weeklyWeathers));
+            other is _$WeatherDataImpl &&
+            (identical(other.current, current) || other.current == current) &&
+            const DeepCollectionEquality().equals(other._hourly, _hourly) &&
+            const DeepCollectionEquality().equals(other._weekly, _weekly));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_weeklyWeathers));
+      runtimeType,
+      current,
+      const DeepCollectionEquality().hash(_hourly),
+      const DeepCollectionEquality().hash(_weekly));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WeeklyWeathersImplCopyWith<_$WeeklyWeathersImpl> get copyWith =>
-      __$$WeeklyWeathersImplCopyWithImpl<_$WeeklyWeathersImpl>(
-          this, _$identity);
+  _$$WeatherDataImplCopyWith<_$WeatherDataImpl> get copyWith =>
+      __$$WeatherDataImplCopyWithImpl<_$WeatherDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$WeeklyWeathersImplToJson(
+    return _$$WeatherDataImplToJson(
       this,
     );
   }
 }
 
-abstract class _WeeklyWeathers implements WeeklyWeathers {
-  const factory _WeeklyWeathers(
-          {required final List<WeeklyWeather> weeklyWeathers}) =
-      _$WeeklyWeathersImpl;
+abstract class _WeatherData implements WeatherData {
+  const factory _WeatherData(
+      {required final CurrentWeather current,
+      required final List<HourlyWeather> hourly,
+      required final List<WeeklyWeather> weekly}) = _$WeatherDataImpl;
 
-  factory _WeeklyWeathers.fromJson(Map<String, dynamic> json) =
-      _$WeeklyWeathersImpl.fromJson;
+  factory _WeatherData.fromJson(Map<String, dynamic> json) =
+      _$WeatherDataImpl.fromJson;
 
   @override
-  List<WeeklyWeather> get weeklyWeathers;
+  CurrentWeather get current;
+  @override
+  List<HourlyWeather> get hourly;
+  @override
+  List<WeeklyWeather> get weekly;
   @override
   @JsonKey(ignore: true)
-  _$$WeeklyWeathersImplCopyWith<_$WeeklyWeathersImpl> get copyWith =>
+  _$$WeatherDataImplCopyWith<_$WeatherDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

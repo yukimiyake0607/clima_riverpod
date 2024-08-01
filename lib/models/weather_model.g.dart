@@ -53,20 +53,6 @@ Map<String, dynamic> _$$HourlyWeatherImplToJson(_$HourlyWeatherImpl instance) =>
       'temperature': instance.temperature,
     };
 
-_$HourlyWeatherListImpl _$$HourlyWeatherListImplFromJson(
-        Map<String, dynamic> json) =>
-    _$HourlyWeatherListImpl(
-      hourlyWeathers: (json['hourlyWeathers'] as List<dynamic>)
-          .map((e) => HourlyWeather.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$$HourlyWeatherListImplToJson(
-        _$HourlyWeatherListImpl instance) =>
-    <String, dynamic>{
-      'hourlyWeathers': instance.hourlyWeathers,
-    };
-
 _$WeeklyWeatherImpl _$$WeeklyWeatherImplFromJson(Map<String, dynamic> json) =>
     _$WeeklyWeatherImpl(
       weatherId: (json['weatherId'] as num).toInt(),
@@ -81,15 +67,20 @@ Map<String, dynamic> _$$WeeklyWeatherImplToJson(_$WeeklyWeatherImpl instance) =>
       'tempMax': instance.tempMax,
     };
 
-_$WeeklyWeathersImpl _$$WeeklyWeathersImplFromJson(Map<String, dynamic> json) =>
-    _$WeeklyWeathersImpl(
-      weeklyWeathers: (json['weeklyWeathers'] as List<dynamic>)
+_$WeatherDataImpl _$$WeatherDataImplFromJson(Map<String, dynamic> json) =>
+    _$WeatherDataImpl(
+      current: CurrentWeather.fromJson(json['current'] as Map<String, dynamic>),
+      hourly: (json['hourly'] as List<dynamic>)
+          .map((e) => HourlyWeather.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      weekly: (json['weekly'] as List<dynamic>)
           .map((e) => WeeklyWeather.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$WeeklyWeathersImplToJson(
-        _$WeeklyWeathersImpl instance) =>
+Map<String, dynamic> _$$WeatherDataImplToJson(_$WeatherDataImpl instance) =>
     <String, dynamic>{
-      'weeklyWeathers': instance.weeklyWeathers,
+      'current': instance.current,
+      'hourly': instance.hourly,
+      'weekly': instance.weekly,
     };

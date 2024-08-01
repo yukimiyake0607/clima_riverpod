@@ -46,16 +46,6 @@ class HourlyWeather with _$HourlyWeather {
 
 
 @freezed
-class HourlyWeatherList with _$HourlyWeatherList {
-  const factory HourlyWeatherList({
-    required List<HourlyWeather> hourlyWeathers,
-  }) = _HourlyWeatherList;
-  
-  factory HourlyWeatherList.fromJson(Map<String, dynamic> json) => _$HourlyWeatherListFromJson(json);
-}
-
-
-@freezed
 class WeeklyWeather with _$WeeklyWeather {
   const factory WeeklyWeather({
     required int weatherId,
@@ -68,10 +58,12 @@ class WeeklyWeather with _$WeeklyWeather {
 
 
 @freezed
-class WeeklyWeathers with _$WeeklyWeathers {
-  const factory WeeklyWeathers({
-    required List<WeeklyWeather> weeklyWeathers,
-  }) = _WeeklyWeathers;
+class WeatherData with _$WeatherData {
+  const factory WeatherData({
+    required CurrentWeather current,
+    required List<HourlyWeather> hourly,
+    required List<WeeklyWeather> weekly,
+  }) = _WeatherData;
   
-  factory WeeklyWeathers.fromJson(Map<String, dynamic> json) => _$WeeklyWeathersFromJson(json);
+  factory WeatherData.fromJson(Map<String, dynamic> json) => _$WeatherDataFromJson(json);
 }
