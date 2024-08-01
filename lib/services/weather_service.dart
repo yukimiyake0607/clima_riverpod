@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:clima_riverpod/services/location_service.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:clima_riverpod/models/weather_model.dart';
 import 'package:http/http.dart' as http;
