@@ -36,5 +36,22 @@ final weatherServiceProvider = AutoDisposeProvider<WeatherService>.internal(
 );
 
 typedef WeatherServiceRef = AutoDisposeProviderRef<WeatherService>;
+String _$weatherDataNotifierHash() =>
+    r'dca823f3b2bc1f5ff0524b527d27a96f25f1e303';
+
+/// See also [WeatherDataNotifier].
+@ProviderFor(WeatherDataNotifier)
+final weatherDataNotifierProvider =
+    AutoDisposeAsyncNotifierProvider<WeatherDataNotifier, WeatherData>.internal(
+  WeatherDataNotifier.new,
+  name: r'weatherDataNotifierProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$weatherDataNotifierHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$WeatherDataNotifier = AutoDisposeAsyncNotifier<WeatherData>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
