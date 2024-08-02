@@ -222,10 +222,6 @@ abstract class _Location implements Location {
       throw _privateConstructorUsedError;
 }
 
-CurrentWeather _$CurrentWeatherFromJson(Map<String, dynamic> json) {
-  return _CurrentWeather.fromJson(json);
-}
-
 /// @nodoc
 mixin _$CurrentWeather {
   double get temperature => throw _privateConstructorUsedError;
@@ -233,7 +229,6 @@ mixin _$CurrentWeather {
   double get tempMin => throw _privateConstructorUsedError;
   double get tempMax => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CurrentWeatherCopyWith<CurrentWeather> get copyWith =>
       throw _privateConstructorUsedError;
@@ -338,7 +333,7 @@ class __$$CurrentWeatherImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$CurrentWeatherImpl
     with DiagnosticableTreeMixin
     implements _CurrentWeather {
@@ -347,9 +342,6 @@ class _$CurrentWeatherImpl
       required this.weatherId,
       required this.tempMin,
       required this.tempMax});
-
-  factory _$CurrentWeatherImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CurrentWeatherImplFromJson(json);
 
   @override
   final double temperature;
@@ -389,7 +381,6 @@ class _$CurrentWeatherImpl
             (identical(other.tempMax, tempMax) || other.tempMax == tempMax));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, temperature, weatherId, tempMin, tempMax);
@@ -400,13 +391,6 @@ class _$CurrentWeatherImpl
   _$$CurrentWeatherImplCopyWith<_$CurrentWeatherImpl> get copyWith =>
       __$$CurrentWeatherImplCopyWithImpl<_$CurrentWeatherImpl>(
           this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CurrentWeatherImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _CurrentWeather implements CurrentWeather {
@@ -415,9 +399,6 @@ abstract class _CurrentWeather implements CurrentWeather {
       required final int weatherId,
       required final double tempMin,
       required final double tempMax}) = _$CurrentWeatherImpl;
-
-  factory _CurrentWeather.fromJson(Map<String, dynamic> json) =
-      _$CurrentWeatherImpl.fromJson;
 
   @override
   double get temperature;
@@ -433,17 +414,12 @@ abstract class _CurrentWeather implements CurrentWeather {
       throw _privateConstructorUsedError;
 }
 
-HourlyWeather _$HourlyWeatherFromJson(Map<String, dynamic> json) {
-  return _HourlyWeather.fromJson(json);
-}
-
 /// @nodoc
 mixin _$HourlyWeather {
   int get timeStamp => throw _privateConstructorUsedError;
   int get weatherId => throw _privateConstructorUsedError;
   double get temperature => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $HourlyWeatherCopyWith<HourlyWeather> get copyWith =>
       throw _privateConstructorUsedError;
@@ -536,7 +512,7 @@ class __$$HourlyWeatherImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$HourlyWeatherImpl
     with DiagnosticableTreeMixin
     implements _HourlyWeather {
@@ -544,9 +520,6 @@ class _$HourlyWeatherImpl
       {required this.timeStamp,
       required this.weatherId,
       required this.temperature});
-
-  factory _$HourlyWeatherImpl.fromJson(Map<String, dynamic> json) =>
-      _$$HourlyWeatherImplFromJson(json);
 
   @override
   final int timeStamp;
@@ -583,7 +556,6 @@ class _$HourlyWeatherImpl
                 other.temperature == temperature));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, timeStamp, weatherId, temperature);
@@ -593,13 +565,6 @@ class _$HourlyWeatherImpl
   @pragma('vm:prefer-inline')
   _$$HourlyWeatherImplCopyWith<_$HourlyWeatherImpl> get copyWith =>
       __$$HourlyWeatherImplCopyWithImpl<_$HourlyWeatherImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$HourlyWeatherImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _HourlyWeather implements HourlyWeather {
@@ -607,9 +572,6 @@ abstract class _HourlyWeather implements HourlyWeather {
       {required final int timeStamp,
       required final int weatherId,
       required final double temperature}) = _$HourlyWeatherImpl;
-
-  factory _HourlyWeather.fromJson(Map<String, dynamic> json) =
-      _$HourlyWeatherImpl.fromJson;
 
   @override
   int get timeStamp;
@@ -623,17 +585,12 @@ abstract class _HourlyWeather implements HourlyWeather {
       throw _privateConstructorUsedError;
 }
 
-WeeklyWeather _$WeeklyWeatherFromJson(Map<String, dynamic> json) {
-  return _WeeklyWeather.fromJson(json);
-}
-
 /// @nodoc
 mixin _$WeeklyWeather {
   int get weatherId => throw _privateConstructorUsedError;
   double get tempMin => throw _privateConstructorUsedError;
   double get tempMax => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $WeeklyWeatherCopyWith<WeeklyWeather> get copyWith =>
       throw _privateConstructorUsedError;
@@ -726,15 +683,12 @@ class __$$WeeklyWeatherImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$WeeklyWeatherImpl
     with DiagnosticableTreeMixin
     implements _WeeklyWeather {
   const _$WeeklyWeatherImpl(
       {required this.weatherId, required this.tempMin, required this.tempMax});
-
-  factory _$WeeklyWeatherImpl.fromJson(Map<String, dynamic> json) =>
-      _$$WeeklyWeatherImplFromJson(json);
 
   @override
   final int weatherId;
@@ -769,7 +723,6 @@ class _$WeeklyWeatherImpl
             (identical(other.tempMax, tempMax) || other.tempMax == tempMax));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, weatherId, tempMin, tempMax);
 
@@ -778,13 +731,6 @@ class _$WeeklyWeatherImpl
   @pragma('vm:prefer-inline')
   _$$WeeklyWeatherImplCopyWith<_$WeeklyWeatherImpl> get copyWith =>
       __$$WeeklyWeatherImplCopyWithImpl<_$WeeklyWeatherImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$WeeklyWeatherImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _WeeklyWeather implements WeeklyWeather {
@@ -792,9 +738,6 @@ abstract class _WeeklyWeather implements WeeklyWeather {
       {required final int weatherId,
       required final double tempMin,
       required final double tempMax}) = _$WeeklyWeatherImpl;
-
-  factory _WeeklyWeather.fromJson(Map<String, dynamic> json) =
-      _$WeeklyWeatherImpl.fromJson;
 
   @override
   int get weatherId;
@@ -808,17 +751,12 @@ abstract class _WeeklyWeather implements WeeklyWeather {
       throw _privateConstructorUsedError;
 }
 
-WeatherData _$WeatherDataFromJson(Map<String, dynamic> json) {
-  return _WeatherData.fromJson(json);
-}
-
 /// @nodoc
 mixin _$WeatherData {
   CurrentWeather get current => throw _privateConstructorUsedError;
   List<HourlyWeather> get hourly => throw _privateConstructorUsedError;
   List<WeeklyWeather> get weekly => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $WeatherDataCopyWith<WeatherData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -930,7 +868,7 @@ class __$$WeatherDataImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$WeatherDataImpl with DiagnosticableTreeMixin implements _WeatherData {
   const _$WeatherDataImpl(
       {required this.current,
@@ -938,9 +876,6 @@ class _$WeatherDataImpl with DiagnosticableTreeMixin implements _WeatherData {
       required final List<WeeklyWeather> weekly})
       : _hourly = hourly,
         _weekly = weekly;
-
-  factory _$WeatherDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$WeatherDataImplFromJson(json);
 
   @override
   final CurrentWeather current;
@@ -985,7 +920,6 @@ class _$WeatherDataImpl with DiagnosticableTreeMixin implements _WeatherData {
             const DeepCollectionEquality().equals(other._weekly, _weekly));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -998,13 +932,6 @@ class _$WeatherDataImpl with DiagnosticableTreeMixin implements _WeatherData {
   @pragma('vm:prefer-inline')
   _$$WeatherDataImplCopyWith<_$WeatherDataImpl> get copyWith =>
       __$$WeatherDataImplCopyWithImpl<_$WeatherDataImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$WeatherDataImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _WeatherData implements WeatherData {
@@ -1012,9 +939,6 @@ abstract class _WeatherData implements WeatherData {
       {required final CurrentWeather current,
       required final List<HourlyWeather> hourly,
       required final List<WeeklyWeather> weekly}) = _$WeatherDataImpl;
-
-  factory _WeatherData.fromJson(Map<String, dynamic> json) =
-      _$WeatherDataImpl.fromJson;
 
   @override
   CurrentWeather get current;

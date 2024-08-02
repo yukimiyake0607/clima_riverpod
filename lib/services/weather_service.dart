@@ -16,17 +16,7 @@ class WeatherService {
     if (response.statusCode == 200) {
       print(response.body);
       final Map<String, dynamic> data = json.decode(response.body);
-      return WeatherData(
-        current: CurrentWeather.fromJson(data['current']),
-        hourly: (data['hourly'] as List)
-            .take(24)
-            .map((e) => HourlyWeather.fromJson(e))
-            .toList(),
-        weekly: (data['daily'] as List)
-            .take(7)
-            .map((e) => WeeklyWeather.fromJson(e))
-            .toList(),
-      );
+      return WeatherData.fromJson(data);
     } else {
       throw Exception('WeatherDataの取得に失敗しました');
     }
