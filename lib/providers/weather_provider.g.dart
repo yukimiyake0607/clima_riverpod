@@ -37,7 +37,7 @@ final weatherServiceProvider = AutoDisposeProvider<WeatherService>.internal(
 
 typedef WeatherServiceRef = AutoDisposeProviderRef<WeatherService>;
 String _$weatherDataNotifierHash() =>
-    r'dca823f3b2bc1f5ff0524b527d27a96f25f1e303';
+    r'f1d366999f148469f9474f716f24d2d130ea1d29';
 
 /// See also [WeatherDataNotifier].
 @ProviderFor(WeatherDataNotifier)

@@ -1,7 +1,5 @@
 import 'package:clima_riverpod/providers/weather_provider.dart';
 import 'package:clima_riverpod/widgets/current_weather.dart';
-import 'package:clima_riverpod/widgets/hourly_weather.dart';
-import 'package:clima_riverpod/widgets/weekly_weather.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -40,9 +38,7 @@ class HomeScreen extends ConsumerWidget {
               data: (weatherData) => ListView(
                 children: [
                   CurrentWeatherWidget(weatherData: weatherData.current),
-                  HourlyWeatherWidget(weatherData: weatherData.hourly),
                   const SizedBox(height: 10),
-                  WeeklyWeatherWidget(weatherData: weatherData.weekly),
                   const SizedBox(height: 15),
                 ],
               ),

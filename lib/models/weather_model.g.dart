@@ -14,20 +14,6 @@ CurrentWeather _$CurrentWeatherFromJson(Map<String, dynamic> json) =>
       tempMax: (json['tempMax'] as num).toDouble(),
     );
 
-HourlyWeather _$HourlyWeatherFromJson(Map<String, dynamic> json) =>
-    HourlyWeather(
-      timeStamp: (json['timeStamp'] as num).toInt(),
-      weatherId: (json['weatherId'] as num).toInt(),
-      temperature: (json['temperature'] as num).toDouble(),
-    );
-
-WeeklyWeather _$WeeklyWeatherFromJson(Map<String, dynamic> json) =>
-    WeeklyWeather(
-      weatherId: (json['weatherId'] as num).toInt(),
-      tempMin: (json['tempMin'] as num).toDouble(),
-      tempMax: (json['tempMax'] as num).toDouble(),
-    );
-
 _$LocationImpl _$$LocationImplFromJson(Map<String, dynamic> json) =>
     _$LocationImpl(
       latitude: (json['latitude'] as num).toDouble(),
