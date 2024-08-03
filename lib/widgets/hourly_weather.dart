@@ -63,9 +63,9 @@ class HourlyWeatherWidget extends StatelessWidget {
                           vertical: 12.0,
                         ),
                         child: Icon(
-                          Icons.wb_sunny,
+                          _getWeatherIcon(hourlyData.weatherId),
                           size: 30,
-                          color: Colors.yellow,
+                          color: _getWeatherIconColor(hourlyData.weatherId),
                         ),
                       ),
                       Text(
