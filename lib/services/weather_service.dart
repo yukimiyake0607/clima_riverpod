@@ -9,22 +9,30 @@ class WeatherService {
 
   Future<WeatherData> getWeatherData(Location location) async {
     try {
-      print('Using API Key: $apiKey'); // デバッグ用。本番環境では削除してください。
-      final String url =
-          'https://api.openweathermap.org/data/2.5/onecall?lat=${location.latitude}&lon=${location.longitude}&exclude=minutely,alerts&appid=$apiKey&units=metric';
+      final String currentWeatherUrl =
+          'https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric';
+      final String forecastWeatherUrl =
+          'https://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric';
 
-      final response = await http.get(Uri.parse(url));
+      final currentResponse = await http.get(Uri.parse(currentWeatherUrl));
+      final forecastResponse = await http.get(Uri.parse(forecastWeatherUrl));
 
-      if (response.statusCode == 200) {
-        print(response.body);
-        final Map<String, dynamic> data = json.decode(response.body);
-        return WeatherData.fromJson(data);
+      if (currentResponse.statusCode == 200 &&
+          forecastResponse.statusCode == 200) {
+        final Map<String, dynamic> currentData =
+            json.decode(currentResponse.body);
+        final Map<String, dynamic> forecastData =
+            json.decode(forecastResponse.body);
+
+        final combinedData = {
+          'current': currentData,
+          'forecast': forecastData,
+        };
+
+        return WeatherData.fromJson(combinedData);
       } else {
-        print('Error status code: ${response.statusCode}');
-        print('Error body: ${response.body}');
-        throw Exception(
-            'WeatherDataの取得に失敗しました。ステータスコード: ${response.statusCode}');
-      }
+        throw Exception('WeatherDataの取得に失敗しました');
+      } 
     } catch (e) {
       print('Error in getWeatherData: $e');
       rethrow;
