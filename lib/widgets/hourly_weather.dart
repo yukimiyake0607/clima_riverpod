@@ -15,7 +15,7 @@ class HourlyWeatherWidget extends StatelessWidget {
         left: 16.0,
       ),
       decoration: BoxDecoration(
-        color: Color(0xff2E74B9).withOpacity(0.6),
+        color: const Color(0xff2E74B9).withOpacity(0.6),
         borderRadius: BorderRadius.circular(16.0),
       ),
       child: Column(
@@ -39,8 +39,9 @@ class HourlyWeatherWidget extends StatelessWidget {
             height: 130.0,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 24,
+              itemCount: weatherData.length,
               itemBuilder: (context, index) {
+                final hourlyData = weatherData[index];
                 return Container(
                   decoration: BoxDecoration(
                     border: Border(
@@ -58,7 +59,7 @@ class HourlyWeatherWidget extends StatelessWidget {
                         style: kHourlyWeather,
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(
+                        padding: EdgeInsets.symmetric(
                           vertical: 12.0,
                         ),
                         child: Icon(
@@ -68,7 +69,7 @@ class HourlyWeatherWidget extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '12°',
+                        hourlyData.temperature.toString(),
                         style: kHourlyWeather.copyWith(
                           fontSize: 20.0,
                         ),
@@ -82,5 +83,21 @@ class HourlyWeatherWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  IconData _getWeatherIcon(int weatherId) {
+    if (weatherId >= 200 && weatherId < 300) return Icons.thunderstorm;
+    if (weatherId >= 300 && weatherId < 400) return Icons.grain;
+    if (weatherId >= 400 && weatherId < 500) return Icons.umbrella;
+    if (weatherId >= 500 && weatherId < 600) return Icons.ac_unit;
+    if (weatherId >= 600 && weatherId < 700) return Icons.cloud;
+    if (weatherId == 800) return Icons.wb_sunny;
+    if (weatherId > 800 && weatherId < 900) return Icons.cloud;
+    return Icons.help_outline;
+  }
+
+  Color _getWeatherIconColor(int weatherId) {
+    if (weatherId == 800) return Colors.yellow;
+    return Colors.white;
   }
 }
