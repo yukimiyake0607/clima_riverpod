@@ -41,44 +41,64 @@ class WeeklyWeatherWidget extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 16),
-          ...List.generate(7, (index) {
-            return Container(
-              padding: EdgeInsets.symmetric(vertical: 10),
-              decoration: BoxDecoration(
-                border: Border(
-                  top: BorderSide(
-                    color: Colors.white.withOpacity(0.2),
-                  ),
-                ),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: 50,
-                    child: Text(
-                      index == 0 ? '今日' : getWeekday(index),
-                      style: kWeeklyWeather,
+          ...List.generate(
+            weatherData.length,
+            (index) {
+              final weeklyWeather = weatherData[index];
+              return Container(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                decoration: BoxDecoration(
+                  border: Border(
+                    top: BorderSide(
+                      color: Colors.white.withOpacity(0.2),
                     ),
                   ),
-                  const Icon(
-                    Icons.sunny,
-                    color: Colors.yellow,
-                  ),
-                  Text(
-                    '最低:11°',
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                  Text(
-                    '最高:17°',
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                ],
-              ),
-            );
-          })
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 50,
+                      child: Text(
+                        index == 0 ? '今日' : getWeekday(index),
+                        style: kWeeklyWeather,
+                      ),
+                    ),
+                    Icon(
+                      _getWeatherIcon(weeklyWeather.weatherId),
+                      color: Colors.yellow,
+                    ),
+                    Text(
+                      '最低:${weeklyWeather.tempMin}°',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                    Text(
+                      '最高:${weeklyWeather.tempMax}°',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
+  }
+
+  IconData _getWeatherIcon(int weatherId) {
+    if (weatherId >= 200 && weatherId < 300) return Icons.thunderstorm;
+    if (weatherId >= 300 && weatherId < 400) return Icons.grain;
+    if (weatherId >= 400 && weatherId < 500) return Icons.umbrella;
+    if (weatherId >= 500 && weatherId < 600) return Icons.ac_unit;
+    if (weatherId >= 600 && weatherId < 700) return Icons.cloud;
+    if (weatherId == 800) return Icons.wb_sunny;
+    if (weatherId > 800 && weatherId < 900) return Icons.cloud;
+    return Icons.help_outline;
+  }
+
+  Color _getWeatherIconColor(int weatherId) {
+    if (weatherId == 800) return Colors.yellow;
+    return Colors.white;
   }
 }
