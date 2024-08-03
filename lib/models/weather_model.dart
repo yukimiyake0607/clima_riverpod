@@ -36,16 +36,38 @@ class CurrentWeather with _$CurrentWeather {
   }
 }
 
+@freezed
+class ForecastWeather with _$ForecastWeather {
+  const factory ForecastWeather({
+    required DateTime dateTime,
+    required double temperature,
+    required int humidity,
+    required int weatherId,
+  }) = _ForecastWeather;
+
+  factory ForecastWeather.fromJson(Map<String, dynamic> json) {
+    return _ForecastWeather(
+      dateTime: DateTime.fromMillisecondsSinceEpoch(json['list'][0]['dt']),
+      temperature: json['list'][0]['main']['temp'],
+      humidity: json['list'][0]['main']['humidity'],
+      weatherId: json['list'][0]['weather'][0]['id'],
+    );
+  }
+}
 
 @freezed
 class WeatherData with _$WeatherData {
   const factory WeatherData({
     required CurrentWeather current,
+    required List<ForecastWeather> forecast,
   }) = _WeatherData;
 
   factory WeatherData.fromJson(Map<String, dynamic> json) {
+    final currentData = json['current'] as Map<String, dynamic>;
+    final forecastData = json['forecast'] as Map<String, dynamic>;
     return _WeatherData(
-      current: CurrentWeather.fromJson(json['current'] as Map<String, dynamic>),
+      current: CurrentWeather.fromJson(currentData),
+      forecast: (forecastData['list'] as List).map((e) => ForecastWeather.fromJson(e as Map<String, dynamic>)).toList(),
     );
   }
 }
