@@ -1,8 +1,10 @@
 import 'package:clima_riverpod/components/style.dart';
+import 'package:clima_riverpod/models/weather_model.dart';
 import 'package:flutter/material.dart';
 
-class WeeklyWeather extends StatelessWidget {
-  WeeklyWeather({super.key});
+class WeeklyWeatherWidget extends StatelessWidget {
+  final List<WeeklyWeather> weatherData;
+  WeeklyWeatherWidget({super.key, required this.weatherData});
 
   final List<String> weekdaysJp = ['月', '火', '水', '木', '金', '土', '日'];
 

@@ -1,8 +1,10 @@
 import 'package:clima_riverpod/components/style.dart';
+import 'package:clima_riverpod/models/weather_model.dart';
 import 'package:flutter/material.dart';
 
-class HourlyWeather extends StatelessWidget {
-  const HourlyWeather({super.key});
+class HourlyWeatherWidget extends StatelessWidget {
+  final List<HourlyWeather> weatherData;
+  const HourlyWeatherWidget({super.key, required this.weatherData});
 
   @override
   Widget build(BuildContext context) {

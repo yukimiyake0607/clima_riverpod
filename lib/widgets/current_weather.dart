@@ -1,8 +1,10 @@
 import 'package:clima_riverpod/components/style.dart';
+import 'package:clima_riverpod/models/weather_model.dart';
 import 'package:flutter/material.dart';
 
-class CurrentWeather extends StatelessWidget {
-  const CurrentWeather({super.key});
+class CurrentWeatherWidget extends StatelessWidget {
+  final CurrentWeather weatherData;
+  const CurrentWeatherWidget({super.key, required this.weatherData});
 
   @override
   Widget build(BuildContext context) {

@@ -1,14 +1,17 @@
+import 'package:clima_riverpod/providers/weather_provider.dart';
 import 'package:clima_riverpod/widgets/current_weather.dart';
 import 'package:clima_riverpod/widgets/hourly_weather.dart';
 import 'package:clima_riverpod/widgets/weekly_weather.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final weatherAsync = ref.watch(weatherDataNotifierProvider);
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -33,22 +36,28 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               horizontal: 20.0,
             ),
-            child: ListView(
-              children: [
-                CurrentWeather(),
-                HourlyWeather(),
-                SizedBox(
-                  height: 10,
-                ),
-                WeeklyWeather(),
-                SizedBox(height: 15),
-              ],
+            child: weatherAsync.when(
+              data: (weatherData) => ListView(
+                children: [
+                  CurrentWeatherWidget(weatherData: weatherData.current),
+                  HourlyWeatherWidget(weatherData: weatherData.hourly),
+                  const SizedBox(height: 10),
+                  WeeklyWeatherWidget(weatherData: weatherData.weekly),
+                  const SizedBox(height: 15),
+                ],
+              ),
+              error: (error, stackTrace) => Center(
+                child: Text('Error: $error'),
+              ),
+              loading: () => const Center(
+                child: CircularProgressIndicator(),
+              ),
             ),
           ),
           bottomNavigationBar: SizedBox(
             height: 90.0,
             child: BottomAppBar(
-              color: Color(0xff2E74B9).withOpacity(0.6),
+              color: const Color(0xff2E74B9).withOpacity(0.6),
               elevation: 0,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
