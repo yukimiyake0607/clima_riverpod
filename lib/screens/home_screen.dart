@@ -63,7 +63,11 @@ class HomeScreen extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      ref
+                          .read(weatherDataNotifierProvider.notifier)
+                          .refreshWeatherData();
+                    },
                     icon: const Icon(
                       Icons.my_location,
                       color: Colors.white,
