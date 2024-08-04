@@ -32,7 +32,7 @@ class WeatherService {
         return WeatherData.fromJson(combinedData);
       } else {
         throw Exception('WeatherDataの取得に失敗しました');
-      } 
+      }
     } catch (e) {
       print('Error in getWeatherData: $e');
       rethrow;
