@@ -26,7 +26,7 @@ class CurrentWeatherWidget extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               Text(
-                '${weatherData.temperature}',
+                '${weatherData.temperature.toInt()}',
                 style: kTemperature,
               ),
               Positioned(
@@ -53,14 +53,14 @@ class CurrentWeatherWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                '最高:${weatherData.tempMax}°',
+                '最高:${weatherData.tempMax.toInt()}°',
                 style: kCurrentWeather,
               ),
               const SizedBox(
                 width: 5.0,
               ),
               Text(
-                '最低:${weatherData.tempMin}°',
+                '最低:${weatherData.tempMin.toInt()}°',
                 style: kCurrentWeather,
               ),
             ],
