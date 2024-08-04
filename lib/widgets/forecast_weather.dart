@@ -27,8 +27,8 @@ class ForecastWeatherWidget extends StatelessWidget {
                   color: Colors.white.withOpacity(0.5),
                   size: 20,
                 ),
-                SizedBox(width: 8),
-                Text(
+                const SizedBox(width: 8),
+                const Text(
                   '時間別天気',
                   style: kForecastWeatherTitle,
                 ),
@@ -42,7 +42,7 @@ class ForecastWeatherWidget extends StatelessWidget {
               final forecastTime = now.add(Duration(hours: 3 * index));
               final timeString = index == 0 ? '現在' : '${forecastTime.hour}時';
               return Container(
-                padding: EdgeInsets.symmetric(vertical: 8),
+                padding: const EdgeInsets.symmetric(vertical: 8),
                 decoration: BoxDecoration(
                   border: Border(
                     top: BorderSide(
