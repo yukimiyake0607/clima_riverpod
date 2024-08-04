@@ -40,7 +40,9 @@ class HomeScreen extends ConsumerWidget {
                 children: [
                   CurrentWeatherWidget(weatherData: weatherData.current),
                   const SizedBox(height: 10),
-                  ForecastWeatherWidget(forecastWeather: weatherData.forecast,),
+                  ForecastWeatherWidget(
+                    forecastWeather: weatherData.forecast,
+                  ),
                   const SizedBox(height: 15),
                 ],
               ),
@@ -58,7 +60,7 @@ class HomeScreen extends ConsumerWidget {
               color: const Color(0xff2E74B9).withOpacity(0.6),
               elevation: 0,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   IconButton(
                     onPressed: () {
@@ -72,14 +74,6 @@ class HomeScreen extends ConsumerWidget {
                       size: 30,
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.menu,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                  )
                 ],
               ),
             ),
