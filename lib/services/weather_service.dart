@@ -10,7 +10,7 @@ class WeatherService {
   Future<WeatherData> getWeatherData(Location location) async {
     try {
       final String currentWeatherUrl =
-          'https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric';
+          'https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&lang=ja&units=metric';
       final String forecastWeatherUrl =
           'https://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric';
 

@@ -24,14 +24,17 @@ class CurrentWeather with _$CurrentWeather {
     required int weatherId,
     required double tempMin,
     required double tempMax,
+    required String cityName,
   }) = _CurrentWeather;
 
   factory CurrentWeather.fromJson(Map<String, dynamic> json) {
     return _CurrentWeather(
-        temperature: json['main']['temp'],
-        weatherId: (json['weather'] as List<dynamic>)[0]['id'] as int,
-        tempMin: json['main']['temp_min'],
-        tempMax: json['main']['temp_max']);
+      temperature: json['main']['temp'],
+      weatherId: (json['weather'] as List<dynamic>)[0]['id'] as int,
+      tempMin: json['main']['temp_min'],
+      tempMax: json['main']['temp_max'],
+      cityName: (json['name'] as String),
+    );
   }
 }
 
@@ -68,7 +71,8 @@ class WeatherData with _$WeatherData {
   factory WeatherData.fromJson(Map<String, dynamic> json) {
     final current = json['current'] != null
         ? CurrentWeather.fromJson(json['current'] as Map<String, dynamic>)
-        : CurrentWeather(temperature: 0, weatherId: 0, tempMin: 0, tempMax: 0);
+        : const CurrentWeather(
+            temperature: 0, weatherId: 0, tempMin: 0, tempMax: 0, cityName: '');
 
     final forecastList = json['forecast'] != null &&
             json['forecast'] is Map<String, dynamic>

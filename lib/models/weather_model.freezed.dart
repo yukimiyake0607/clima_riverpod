@@ -228,6 +228,7 @@ mixin _$CurrentWeather {
   int get weatherId => throw _privateConstructorUsedError;
   double get tempMin => throw _privateConstructorUsedError;
   double get tempMax => throw _privateConstructorUsedError;
+  String get cityName => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CurrentWeatherCopyWith<CurrentWeather> get copyWith =>
@@ -241,7 +242,11 @@ abstract class $CurrentWeatherCopyWith<$Res> {
       _$CurrentWeatherCopyWithImpl<$Res, CurrentWeather>;
   @useResult
   $Res call(
-      {double temperature, int weatherId, double tempMin, double tempMax});
+      {double temperature,
+      int weatherId,
+      double tempMin,
+      double tempMax,
+      String cityName});
 }
 
 /// @nodoc
@@ -261,6 +266,7 @@ class _$CurrentWeatherCopyWithImpl<$Res, $Val extends CurrentWeather>
     Object? weatherId = null,
     Object? tempMin = null,
     Object? tempMax = null,
+    Object? cityName = null,
   }) {
     return _then(_value.copyWith(
       temperature: null == temperature
@@ -279,6 +285,10 @@ class _$CurrentWeatherCopyWithImpl<$Res, $Val extends CurrentWeather>
           ? _value.tempMax
           : tempMax // ignore: cast_nullable_to_non_nullable
               as double,
+      cityName: null == cityName
+          ? _value.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -292,7 +302,11 @@ abstract class _$$CurrentWeatherImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double temperature, int weatherId, double tempMin, double tempMax});
+      {double temperature,
+      int weatherId,
+      double tempMin,
+      double tempMax,
+      String cityName});
 }
 
 /// @nodoc
@@ -310,6 +324,7 @@ class __$$CurrentWeatherImplCopyWithImpl<$Res>
     Object? weatherId = null,
     Object? tempMin = null,
     Object? tempMax = null,
+    Object? cityName = null,
   }) {
     return _then(_$CurrentWeatherImpl(
       temperature: null == temperature
@@ -328,6 +343,10 @@ class __$$CurrentWeatherImplCopyWithImpl<$Res>
           ? _value.tempMax
           : tempMax // ignore: cast_nullable_to_non_nullable
               as double,
+      cityName: null == cityName
+          ? _value.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -341,7 +360,8 @@ class _$CurrentWeatherImpl
       {required this.temperature,
       required this.weatherId,
       required this.tempMin,
-      required this.tempMax});
+      required this.tempMax,
+      required this.cityName});
 
   @override
   final double temperature;
@@ -351,10 +371,12 @@ class _$CurrentWeatherImpl
   final double tempMin;
   @override
   final double tempMax;
+  @override
+  final String cityName;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CurrentWeather(temperature: $temperature, weatherId: $weatherId, tempMin: $tempMin, tempMax: $tempMax)';
+    return 'CurrentWeather(temperature: $temperature, weatherId: $weatherId, tempMin: $tempMin, tempMax: $tempMax, cityName: $cityName)';
   }
 
   @override
@@ -365,7 +387,8 @@ class _$CurrentWeatherImpl
       ..add(DiagnosticsProperty('temperature', temperature))
       ..add(DiagnosticsProperty('weatherId', weatherId))
       ..add(DiagnosticsProperty('tempMin', tempMin))
-      ..add(DiagnosticsProperty('tempMax', tempMax));
+      ..add(DiagnosticsProperty('tempMax', tempMax))
+      ..add(DiagnosticsProperty('cityName', cityName));
   }
 
   @override
@@ -378,12 +401,14 @@ class _$CurrentWeatherImpl
             (identical(other.weatherId, weatherId) ||
                 other.weatherId == weatherId) &&
             (identical(other.tempMin, tempMin) || other.tempMin == tempMin) &&
-            (identical(other.tempMax, tempMax) || other.tempMax == tempMax));
+            (identical(other.tempMax, tempMax) || other.tempMax == tempMax) &&
+            (identical(other.cityName, cityName) ||
+                other.cityName == cityName));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, temperature, weatherId, tempMin, tempMax);
+  int get hashCode => Object.hash(
+      runtimeType, temperature, weatherId, tempMin, tempMax, cityName);
 
   @JsonKey(ignore: true)
   @override
@@ -398,7 +423,8 @@ abstract class _CurrentWeather implements CurrentWeather {
       {required final double temperature,
       required final int weatherId,
       required final double tempMin,
-      required final double tempMax}) = _$CurrentWeatherImpl;
+      required final double tempMax,
+      required final String cityName}) = _$CurrentWeatherImpl;
 
   @override
   double get temperature;
@@ -408,6 +434,8 @@ abstract class _CurrentWeather implements CurrentWeather {
   double get tempMin;
   @override
   double get tempMax;
+  @override
+  String get cityName;
   @override
   @JsonKey(ignore: true)
   _$$CurrentWeatherImplCopyWith<_$CurrentWeatherImpl> get copyWith =>

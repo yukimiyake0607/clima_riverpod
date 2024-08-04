@@ -17,8 +17,8 @@ class CurrentWeatherWidget extends StatelessWidget {
             '現在地',
             style: Theme.of(context).textTheme.displaySmall,
           ),
-          const Text(
-            '東京',
+          Text(
+            weatherData.cityName,
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           Stack(
