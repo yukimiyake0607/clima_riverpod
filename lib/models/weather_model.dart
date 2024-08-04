@@ -18,7 +18,6 @@ class Location with _$Location {
 }
 
 @freezed
-@JsonSerializable(createToJson: false)
 class CurrentWeather with _$CurrentWeather {
   const factory CurrentWeather({
     required double temperature,
@@ -47,10 +46,14 @@ class ForecastWeather with _$ForecastWeather {
 
   factory ForecastWeather.fromJson(Map<String, dynamic> json) {
     return _ForecastWeather(
-      dateTime: DateTime.fromMillisecondsSinceEpoch(json['list'][0]['dt']),
-      temperature: json['list'][0]['main']['temp'],
-      humidity: json['list'][0]['main']['humidity'],
-      weatherId: json['list'][0]['weather'][0]['id'],
+      dateTime:
+          DateTime.fromMillisecondsSinceEpoch((json['dt'] as int?) ?? 0 * 1000),
+      temperature:
+          (json['main'] as Map<String, dynamic>?)?['temp']?.toDouble() ?? 0.0,
+      humidity:
+          (json['main'] as Map<String, dynamic>?)?['humidity'] as int? ?? 0,
+      weatherId:
+          (json['weather'] as List<dynamic>?)?.firstOrNull?['id'] as int? ?? 0,
     );
   }
 }
@@ -63,11 +66,22 @@ class WeatherData with _$WeatherData {
   }) = _WeatherData;
 
   factory WeatherData.fromJson(Map<String, dynamic> json) {
-    final currentData = json['current'] as Map<String, dynamic>;
-    final forecastData = json['forecast'] as Map<String, dynamic>;
+    final current = json['current'] != null
+        ? CurrentWeather.fromJson(json['current'] as Map<String, dynamic>)
+        : CurrentWeather(temperature: 0, weatherId: 0, tempMin: 0, tempMax: 0);
+
+    final forecastList = json['forecast'] != null &&
+            json['forecast'] is Map<String, dynamic>
+        ? ((json['forecast'] as Map<String, dynamic>)['list'] as List<dynamic>?)
+                ?.map(
+                    (e) => ForecastWeather.fromJson(e as Map<String, dynamic>))
+                .toList() ??
+            []
+        : <ForecastWeather>[];
+
     return _WeatherData(
-      current: CurrentWeather.fromJson(currentData),
-      forecast: (forecastData['list'] as List).map((e) => ForecastWeather.fromJson(e as Map<String, dynamic>)).toList(),
+      current: current,
+      forecast: forecastList,
     );
   }
 }

@@ -6,14 +6,6 @@ part of 'weather_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-CurrentWeather _$CurrentWeatherFromJson(Map<String, dynamic> json) =>
-    CurrentWeather(
-      temperature: (json['temperature'] as num).toDouble(),
-      weatherId: (json['weatherId'] as num).toInt(),
-      tempMin: (json['tempMin'] as num).toDouble(),
-      tempMax: (json['tempMax'] as num).toDouble(),
-    );
-
 _$LocationImpl _$$LocationImplFromJson(Map<String, dynamic> json) =>
     _$LocationImpl(
       latitude: (json['latitude'] as num).toDouble(),
