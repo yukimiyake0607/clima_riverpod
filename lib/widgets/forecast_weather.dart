@@ -47,15 +47,42 @@ class ForecastWeatherWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: Row(
+                child: const Row(
                   children: [
                     Text(
                       '現在',
                       style: kForecastWeather,
                     ),
+                    SizedBox(width: 24),
                     Icon(
                       Icons.sunny,
                       color: Colors.yellow,
+                    ),
+                    Spacer(),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.thermostat,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          '27°',
+                          style: kForecastTemperature,
+                        ),
+                      ],
+                    ),
+                    SizedBox(width: 16),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.opacity,
+                          color: Colors.lightBlueAccent,
+                        ),
+                        Text(
+                          '60%',
+                          style: kForecastTemperature,
+                        ),
+                      ],
                     ),
                   ],
                 ),
