@@ -57,7 +57,7 @@ class ForecastWeatherWidget extends StatelessWidget {
             ),
           ),
           ...List.generate(
-            7,
+            16,
             (index) {
               final now = DateTime.now();
               final forecastTime = now.add(Duration(hours: 3 * index));
