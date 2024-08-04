@@ -12,3 +12,7 @@
 ・状態管理はRiverpodを使用<br>
 ・OpenWeatherMapのAPIを統合<br>
 
+
+
+https://github.com/user-attachments/assets/4c116656-186f-41d3-bf0e-9b795fd16d9c
+
