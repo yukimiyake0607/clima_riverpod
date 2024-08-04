@@ -20,12 +20,12 @@ class ForecastWeatherWidget extends StatelessWidget {
       return const Icon(Icons.ac_unit, color: Colors.white);
     }
     if (weatherId >= 600 && weatherId < 700) {
-      return const Icon(Icons.cloud, color: kGreyWhiteMidColor);
+      return const Icon(Icons.cloud, color: Colors.white);
     }
     if (weatherId == 800) {
       return const Icon(Icons.wb_sunny, color: Colors.yellow);
     }
-    return const Icon(Icons.cloud, color: kGreyWhiteMidColor);
+    return const Icon(Icons.cloud, color: Colors.white);
   }
 
   @override
@@ -90,7 +90,7 @@ class ForecastWeatherWidget extends StatelessWidget {
                       width: 60,
                       child: Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.thermostat,
                             color: Colors.white,
                           ),
@@ -106,7 +106,7 @@ class ForecastWeatherWidget extends StatelessWidget {
                       width: 70,
                       child: Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.opacity,
                             color: Colors.lightBlueAccent,
                           ),

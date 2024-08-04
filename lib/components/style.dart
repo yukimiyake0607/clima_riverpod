@@ -21,5 +21,3 @@ const kForecastWeatherTitle = TextStyle(fontSize: 16, color: Colors.white60);
 const kForecastTemperature = TextStyle(fontSize: 20);
 
 const kContainerColor = Color(0xff4574B3);
-
-const kGreyWhiteMidColor = Color(0xFFC0C0C0);
