@@ -1,6 +1,5 @@
 import 'package:clima_riverpod/components/style.dart';
 import 'package:clima_riverpod/models/weather_model.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ForecastWeatherWidget extends StatelessWidget {
@@ -57,6 +56,7 @@ class ForecastWeatherWidget extends StatelessWidget {
                       child: Text(
                         timeString,
                         style: kForecastWeather,
+                        textAlign: TextAlign.center,
                       ),
                     ),
                     const SizedBox(width: 24),
