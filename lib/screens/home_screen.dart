@@ -1,5 +1,6 @@
 import 'package:clima_riverpod/providers/weather_provider.dart';
 import 'package:clima_riverpod/widgets/current_weather.dart';
+import 'package:clima_riverpod/widgets/forecast_weather.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -39,6 +40,7 @@ class HomeScreen extends ConsumerWidget {
                 children: [
                   CurrentWeatherWidget(weatherData: weatherData.current),
                   const SizedBox(height: 10),
+                  ForecastWeatherWidget(forecastWeather: weatherData.forecast,),
                   const SizedBox(height: 15),
                 ],
               ),

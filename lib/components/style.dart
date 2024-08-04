@@ -11,16 +11,9 @@ const kCurrentWeather = TextStyle(
   fontWeight: FontWeight.w600,
 );
 
-const kHourlyWeather = TextStyle(
-  fontSize: 16.0,
-  fontWeight: FontWeight.bold,
-);
-
-const kWeeklyWeather = TextStyle(
+const kForecastWeather = TextStyle(
   fontSize: 20,
   fontWeight: FontWeight.bold,
 );
 
-const kWeeklyWeatherTitle = TextStyle(
-  fontSize: 18,
-);
+const kForecastWeatherTitle = TextStyle(fontSize: 16, color: Colors.white60);
