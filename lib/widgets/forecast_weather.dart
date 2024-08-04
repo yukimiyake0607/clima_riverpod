@@ -12,7 +12,7 @@ class ForecastWeatherWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-        color: Color(0xff4574B3).withOpacity(0.6),
+        color: kContainerColor.withOpacity(0.6),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -38,6 +38,9 @@ class ForecastWeatherWidget extends StatelessWidget {
           ...List.generate(
             7,
             (index) {
+              final now = DateTime.now();
+              final forecastTime = now.add(Duration(hours: 3 * index));
+              final timeString = index == 0 ? '現在' : '${forecastTime.hour}時';
               return Container(
                 padding: EdgeInsets.symmetric(vertical: 8),
                 decoration: BoxDecoration(
@@ -47,18 +50,21 @@ class ForecastWeatherWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: const Row(
+                child: Row(
                   children: [
-                    Text(
-                      '現在',
-                      style: kForecastWeather,
+                    SizedBox(
+                      width: 50,
+                      child: Text(
+                        timeString,
+                        style: kForecastWeather,
+                      ),
                     ),
-                    SizedBox(width: 24),
+                    const SizedBox(width: 24),
                     Icon(
                       Icons.sunny,
                       color: Colors.yellow,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Row(
                       children: [
                         Icon(
@@ -71,7 +77,7 @@ class ForecastWeatherWidget extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     Row(
                       children: [
                         Icon(
